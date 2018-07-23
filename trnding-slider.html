@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8" />
+<head>
+<title></title>
+<style type="text/css" media="screen">
+.middle_container {
+    width: 870px;
+    margin: 0 auto;
+    padding-top: 0;
+	position:relative
+}  
+.navigation {
+    height: 47px;
+    border-bottom: 1px solid #ccc;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+.belt_outer ul {
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+
+.belt_outer {
+    width: 830px;
+    overflow: hidden;
+	 margin: auto;
+	 position:relative
+}
+.belt_outer ul li {
+    width: auto!important;
+    float: left;
+}
+.belt_outer ul li a {
+    padding: 0 20px 0px;
+    color: #000;
+    font-size: 20px;
+    font-weight: 700;
+    float: left;
+    text-decoration: none;
+}
+.belt_outer ul li{
+list-style: none;
+}
+.shprevarrow {
+    background: url(https://smedia2.intoday.in/dailyo/resources/css/images/left-arrow.png)left center no-repeat;
+    cursor: pointer;
+		 left: 0px;
+    top: 0px;
+}
+.shnextarrow {
+   background: url(https://smedia2.intoday.in/dailyo/resources/css/images/right-arrow.png) right center no-repeat ;
+    margin: 0 5px;
+    cursor: pointer;
+	 right: -5px;
+    top: 0px;
+}
+.shprevarrow, .shnextarrow {
+    height: 35px;
+    width: 12px;
+	position:absolute
+ 
+   
+}
+
+</style>
+<script   src="https://smedia2.intoday.in/ichowk/1.0.40/resources/js/jquery.min.1.8.2.min.js" type="text/javascript" ></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var arrList = [];
+var ulWidthtrend = 0;
+var counter = 1;
+ 
+var zts = parseInt($('.belt').parent().css('width')) > $('.belt').parent().innerWidth() ? $('.belt').parent().innerWidth() : parseInt($('.belt').parent().css('width'));
+
+$('.belt li').each(function(index,value){
+arrList.push($(this).outerWidth(true));
+ulWidthtrend+=$(this).outerWidth(true);
+//console.log(ulWidthtrend)
+})
+console.log(arrList);
+    var lastTwoelementwidth = arrList[arrList.length - 1] + arrList[arrList.length - 2];
+	var tlistLength = $(".belt li").length,
+	t = $(".belt li").outerWidth(true),
+	a = ulWidthtrend;
+	
+    $(".belt").css("width", a);
+    var tagtrendul =  $('.belt').width();
+    if(counter == 1){
+    	$(".shprevarrow").fadeOut();
+    }
+$(".shprevarrow").click(function() {
+	if(parseInt($('.belt').css('left')) > 0){
+			  
+		$(".shprevarrow").hide();
+				  
+		$(".belt").css('left','0px');
+				  
+		counter = 1;
+				  
+		console.log('counter in arrowleft if conditon'+counter);
+	}else{    
+	
+	if(counter > arrList.length){
+		counter = arrList.length;
+	}
+          
+	console.log('counter in arrowleft else condition'+counter);
+          
+$(".belt").animate({
+            left: "+=" + arrList[counter - 1]
+        },function(){
+			if(parseInt($('.belt').css('left')) > 1){
+				$(".shprevarrow").hide();
+				$(".belt").css('left','0px')
+			}
+        }); 
+        counter -= 1;
+        if(counter > 1){
+        $(".shnextarrow").fadeIn();
+        }
+        if(parseInt($('.belt').css('left')) > 1){
+        $(".shprevarrow").fadeOut();
+        }
+          }
+               
+    })
+	
+	
+$(".shnextarrow").click(function() {
+ 
+        $(".belt").animate({
+            left: "-=" + arrList[counter - 1]
+        },function(){
+        if(tagtrendul + parseInt($('.belt').css('left')) <= (zts + lastTwoelementwidth)){
+			$(".shnextarrow").hide();
+			var cts = tagtrendul - zts;
+			console.log("cts"+cts)
+			$(".belt").css('left','-'+cts+'px');
+			counter = arrList.length - 1;
+			console.log('counter in arrow right'+counter);
+        }
+       });
+        counter += 1;
+        if(counter >= 1){
+   			$(".shprevarrow").fadeIn();
+    	}       
+ 
+            
+       })
+})
+
+</script>
+</head>
+<body>
+<div class="middle_container">
+
+
+    <div class="belt_outer">
+        <ul class="belt">
+        <li><a href="/tag/kairana-bypoll/1/17895.html">कैराना उपचुनाव</a></li>
+        <li><a href="/tag/narendra-modi/1/552.html">नरेंद्र मोदी</a></li>
+        <li><a href="/tag/rahul-gandhi/1/273.html">राहुल गांधी</a></li>
+        <li><a href="/tag/virat-kohli/1/3842.html">विराट कोहली</a></li>
+        <li><a href="/tag/yogi-adityanath/1/1230.html">योगी आदित्यनाथ</a></li>
+        <li><a href="/tag/pakistan/1/471.html">पाकिस्तान</a></li>
+        <li><a href="/tag/arun-jaitley/1/1200.html">अरुण जेटली</a></li>
+        <li><a href="/tag/blackmoney/1/10389.html">ब्लैकमनी</a></li>
+        <li><a href="/tag/asaram-bapu/1/4578.html">आसाराम बापू</a></li>
+        <li><a href="/tag/nirav-modi/1/17310.html">नीरव मोदी</a></li>
+        <li><a href="/tag/arvind-kejriwal/1/305.html">अरविंद केजरीवाल</a></li>
+        <li><a href="/tag/budegt-2018/1/17112.html">बजट 2018</a></li>
+        <li><a href="/tag/ipl/1/2043.html">आईपीएल</a></li>
+        <li><a href="/tag/gst/1/2609.html">जीएसटी</a></li>
+        <li><a href="/tag/rail-budget/1/1107.html">रेल बजट</a></li>
+        <li><a href="/tag/priya-prakash-varrier/1/17293.html">प्रिया प्रकाश वारियर</a></li>
+        <li><a href="/tag/pnb-scam/1/17312.html">पीएनबी घोटाला</a></li>
+        <li><a href="/tag/gujarat-election/1/13139.html">गुजरात चुनाव</a></li>
+        <li><a href="/tag/china/1/374.html">चीन</a></li>
+        <li><a href="/tag/amit-shah/1/799.html">अमित शाह</a></li>
+        <li><a href="/tag/donald-trump/1/7338.html">डोनाल्ड ट्रंप</a></li>
+        <li><a href="/tag/demonetisation/1/14817.html">डिमॉनेटाइजेशन</a></li>
+        <li><a href="/tag/jio/1/14602.html">जियो</a></li>
+        <li><a href="/tag/kulbhushan-jadhav/1/10244.html">कुलभूषण जाधव</a></li>
+        <li><a href="/tag/up-elections-2017/1/11740.html">उत्तर प्रदेश चुनाव 2017</a></li>
+        <li><a href="/tag/evm/1/15516.html">ईवीएम</a></li>
+        <li><a href="/tag/j-jayalalithaa/1/2641.html">जयललिता</a></li>
+        <li><a href="/tag/punjab-election/1/8870.html">पंजाब चुनाव</a></li>
+        <li><a href="/tag/doklam/1/16418.html">डोकलाम</a></li>
+        </ul>
+    </div>
+        <div class="shnextarrow" style="display: block;"></div>
+		<div class="shprevarrow" style="display: block;"></div>
+</div>
+
+</body>
+</html>
